@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Desert & Tropics Health Bar | Moab, Utah</title>
+<meta name="description" content="Desert & Tropics Health Bar in Moab, Utah. Handcrafted açaí bowls, cold-pressed juices, smoothies, sourdough toasts and desserts. Fuel up before your Canyonlands adventure."/>
+<meta name="keywords" content="health bar moab, acai bowls moab, smoothies moab, cold pressed juice moab, desert tropics"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+html { scroll-behavior: smooth; }
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--rust:#B8391A;--rust-dark:#8C2810;--cream:#FAF3E8;--sand:#EDE0C8;--brown:#3A2010;--brown-light:#6B3D1E;--gold:#C89B5A;}
+body{font-family:'Jost',sans-serif;background:var(--rust);color:var(--cream);overflow-x:hidden;}
+.plant-side{position:fixed;top:50%;transform:translateY(-50%);z-index:50;pointer-events:none;opacity:0.18;}
+.plant-side.left{left:-8px;}
+.plant-side.right{right:-8px;transform:translateY(-50%) scaleX(-1);}
+nav{background:var(--rust-dark);padding:14px 80px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(250,243,232,0.15);}
+.nav-logo{display:flex;align-items:center;gap:12px;}
+.nav-logo img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:1px solid rgba(250,243,232,0.3);}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:17px;letter-spacing:2.5px;color:var(--cream);text-transform:uppercase;}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);text-decoration:none;opacity:0.8;}
+.nav-links a:hover{opacity:1;}
+.nav-icons{display:flex;gap:16px;}
+.nav-icons svg{width:19px;height:19px;stroke:var(--cream);fill:none;cursor:pointer;opacity:0.8;}
+.hero{position:relative;height:580px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.hero-bg{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;}
+.hero-img{width:100%;height:100%;object-fit:cover;filter:brightness(0.42) saturate(0.8);}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(140,40,16,0.4),rgba(58,32,16,0.65));}
+.hero-box{position:relative;z-index:2;text-align:center;background:rgba(250,243,232,0.09);backdrop-filter:blur(3px);border:1px solid rgba(250,243,232,0.2);padding:52px 84px;}
+.hero-eyebrow{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:300;font-style:italic;color:var(--cream);line-height:1.1;margin-bottom:10px;}
+.hero-sub{font-size:11px;letter-spacing:3px;color:var(--sand);text-transform:uppercase;}
+.marquee-strip{background:var(--brown);padding:12px 0;overflow:hidden;white-space:nowrap;}
+.marquee-inner{display:inline-flex;animation:marquee 24s linear infinite;}
+.marquee-item{font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:var(--sand);padding:0 32px;}
+.marquee-dot{color:var(--gold);}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.menu-section{padding:70px 80px;background:var(--rust);}
+.section-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(250,243,232,0.5);margin-bottom:8px;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;font-style:italic;color:var(--cream);margin-bottom:36px;}
+.tabs{display:flex;gap:0;margin-bottom:32px;border-bottom:1px solid rgba(250,243,232,0.15);}
+.tab{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(250,243,232,0.55);padding:10px 24px;cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s;}
+.tab.active{color:var(--cream);border-bottom:2px solid var(--gold);}
+.tab:hover{color:var(--cream);}
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+.menu-card{position:relative;overflow:hidden;cursor:pointer;background:rgba(250,243,232,0.06);border:1px solid rgba(250,243,232,0.1);}
+.menu-card-img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:brightness(0.85);}
+.menu-card-img-placeholder{width:100%;aspect-ratio:4/3;background:rgba(250,243,232,0.08);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border-bottom:1px solid rgba(250,243,232,0.1);}
+.menu-card-img-placeholder svg{opacity:0.25;}
+.menu-card-img-placeholder span{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,243,232,0.3);}
+.menu-card-body{padding:18px 20px;}
+.menu-card-name{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--cream);margin-bottom:5px;}
+.menu-card-desc{font-size:11px;color:rgba(250,243,232,0.55);line-height:1.7;font-weight:300;}
+.menu-card-tag{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
+.badge{position:absolute;top:12px;left:12px;background:var(--gold);color:var(--brown);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;font-weight:500;}
+.dessert-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+.community-section{background:var(--sand);padding:80px;}
+.philosophy-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:70px;}
+.philosophy-quote{font-family:'Cormorant Garamond',serif;font-size:38px;font-style:italic;color:var(--brown);line-height:1.3;margin-bottom:24px;}
+.philosophy-body{font-size:14px;line-height:1.95;color:var(--brown-light);font-weight:300;max-width:440px;}
+.philosophy-body p{margin-bottom:14px;}
+.philosophy-img-wrap img{width:100%;height:460px;object-fit:cover;}
+.philosophy-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.pillar{background:var(--rust-dark);padding:36px 30px;text-align:center;}
+.pillar-icon{margin-bottom:14px;opacity:0.7;}
+.pillar-title{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--cream);margin-bottom:8px;}
+.pillar-text{font-size:12px;color:rgba(250,243,232,0.6);line-height:1.8;font-weight:300;}
+.reviews-section{background:var(--brown);padding:70px 80px;}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px;}
+.review-card{background:rgba(250,243,232,0.05);border:1px solid rgba(250,243,232,0.1);padding:28px 24px;}
+.review-stars{display:flex;gap:4px;margin-bottom:14px;}
+.review-star{color:var(--gold);font-size:13px;}
+.review-text{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--cream);line-height:1.6;margin-bottom:16px;}
+.review-author{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,243,232,0.45);}
+.review-item{font-size:10px;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;margin-top:4px;}
+.plant-divider{background:var(--rust);display:flex;align-items:center;justify-content:center;padding:28px 0;gap:20px;}
+.divider-line{flex:1;height:1px;background:rgba(250,243,232,0.12);max-width:180px;}
+.about-strip{background:var(--cream);display:grid;grid-template-columns:1fr 1fr;}
+.about-text{padding:72px 64px;display:flex;flex-direction:column;justify-content:center;}
+.about-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--brown-light);margin-bottom:10px;}
+.about-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;font-style:italic;color:var(--brown);margin-bottom:20px;line-height:1.2;}
+.about-text p{font-size:14px;line-height:1.9;color:var(--brown-light);max-width:360px;font-weight:300;}
+.about-img-wrap{overflow:hidden;min-height:440px;}
+.about-img-wrap img{width:100%;height:100%;object-fit:cover;}
+.values-section{background:var(--brown);display:grid;grid-template-columns:repeat(3,1fr);}
+.value-card{padding:56px 44px;border-right:1px solid rgba(250,243,232,0.08);}
+.value-card:last-child{border:none;}
+.value-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-style:italic;color:var(--gold);line-height:1;margin-bottom:14px;}
+.value-title{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--cream);margin-bottom:8px;}
+.value-text{font-size:12px;line-height:1.9;color:rgba(250,243,232,0.5);font-weight:300;}
+.map-section{background:var(--rust-dark);padding:70px 80px;}
+.map-section .section-eyebrow{color:rgba(250,243,232,0.5);}
+.map-section .section-title{color:var(--cream);}
+.map-wrap{display:grid;grid-template-columns:1fr 1.6fr;gap:3px;margin-top:36px;}
+.map-info{background:rgba(250,243,232,0.06);border:1px solid rgba(250,243,232,0.12);padding:44px 36px;display:flex;flex-direction:column;justify-content:center;gap:28px;}
+.map-info-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.map-info-value{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--cream);line-height:1.5;}
+.map-info-sub{font-size:12px;color:rgba(250,243,232,0.5);margin-top:3px;}
+.map-divider{height:1px;background:rgba(250,243,232,0.1);}
+.map-embed iframe{width:100%;height:100%;min-height:400px;border:0;filter:saturate(0.7) contrast(1.05);}
+.cta-section{background:var(--sand);text-align:center;padding:90px 60px;}
+.cta-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--brown-light);margin-bottom:10px;}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:300;font-style:italic;color:var(--brown);margin-bottom:8px;}
+.cta-sub{font-size:11px;color:var(--brown-light);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:32px;}
+.cta-btn{background:var(--rust-dark);color:var(--cream);font-family:'Jost',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:15px 44px;cursor:pointer;border:none;}
+.ig-section{background:var(--rust-dark);padding:56px 80px;text-align:center;}
+.ig-handle{font-size:12px;letter-spacing:2px;color:var(--gold);text-decoration:none;display:inline-block;margin-bottom:28px;}
+.ig-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;max-width:600px;margin:0 auto;}
+.ig-placeholder{aspect-ratio:1;background:rgba(250,243,232,0.07);border:1px solid rgba(250,243,232,0.1);display:flex;align-items:center;justify-content:center;}
+footer{background:var(--brown);padding:56px 80px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;border-top:1px solid rgba(250,243,232,0.08);}
+.footer-brand img{width:62px;height:62px;border-radius:50%;margin-bottom:14px;border:1px solid rgba(250,243,232,0.2);}
+.footer-brand p{font-size:12px;color:rgba(250,243,232,0.45);line-height:1.9;max-width:200px;font-weight:300;}
+.footer-col h4{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--cream);margin-bottom:14px;font-weight:400;letter-spacing:1px;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{font-size:12px;color:rgba(250,243,232,0.45);padding:3px 0;}
+.footer-col ul li a{color:rgba(250,243,232,0.45);text-decoration:none;}
+.footer-col ul li a:hover{color:var(--gold);}
+.footer-bottom{background:var(--brown);padding:16px 80px;border-top:1px solid rgba(250,243,232,0.06);display:flex;justify-content:space-between;}
+.footer-bottom p{font-size:11px;color:rgba(250,243,232,0.3);letter-spacing:1px;}
+
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.hamburger span{width:22px;height:1.5px;background:var(--cream);display:block;}
+/* MOBILE FULLSCREEN MENU */
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--rust-dark);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:32px;font-style:italic;color:var(--cream);text-decoration:none;}
+.mobile-close{position:absolute;top:20px;right:24px;font-size:28px;color:var(--cream);cursor:pointer;background:none;border:none;}
+
+/* MOBILE */
+@media(max-width:767px){
+  .plant-side{display:none;}
+  nav{padding:12px 20px;}
+  .nav-links{display:none;}
+  .nav-icons{display:none;}
+  .hamburger{display:flex;}
+  .hero{height:460px;}
+  .hero-box{padding:30px 20px;width:88%;}
+  .hero-title{font-size:34px;}
+  .hero-eyebrow,.hero-sub{font-size:10px;}
+  .menu-section{padding:40px 16px;}
+  .section-title{font-size:28px;margin-bottom:18px;}
+  .tabs{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .tabs::-webkit-scrollbar{display:none;}
+  .tab{padding:10px 14px;font-size:10px;white-space:nowrap;}
+  .menu-grid{grid-template-columns:1fr 1fr;}
+  .menu-card-body{padding:10px 12px;}
+  .menu-card-name{font-size:15px;}
+  .menu-card-desc{font-size:10px;}
+  .dessert-grid{grid-template-columns:1fr;}
+  .community-section{padding:40px 16px;}
+  .philosophy-wrap{grid-template-columns:1fr;gap:24px;margin-bottom:28px;}
+  .philosophy-quote{font-size:24px;}
+  .philosophy-body{font-size:13px;}
+  .philosophy-img-wrap img{height:200px;}
+  .philosophy-pillars{grid-template-columns:1fr;}
+  .reviews-section{padding:40px 16px;}
+  .reviews-grid{grid-template-columns:1fr;gap:14px;margin-top:20px;}
+  .review-text{font-size:16px;}
+  .about-strip{grid-template-columns:1fr;}
+  .about-text{padding:40px 16px;}
+  .about-title{font-size:28px;}
+  .about-img-wrap{min-height:220px;}
+  .values-section{grid-template-columns:1fr;}
+  .value-card{padding:36px 16px;border-right:none;border-bottom:1px solid rgba(250,243,232,0.08);}
+  .value-card:last-child{border:none;}
+  .map-section{padding:40px 16px;}
+  .map-wrap{grid-template-columns:1fr;}
+  .map-info{padding:24px 16px;}
+  .map-embed iframe{min-height:250px;}
+  .cta-section{padding:60px 16px;}
+  .cta-title{font-size:34px;}
+  .ig-section{padding:40px 16px;}
+  .ig-grid{max-width:100%;}
+  footer{padding:40px 16px;grid-template-columns:1fr 1fr;gap:24px;}
+  .footer-brand{grid-column:1/-1;}
+  .footer-bottom{padding:14px 16px;flex-direction:column;gap:4px;text-align:center;}
+}
+@media(max-width:390px){
+  .hero-title{font-size:28px;}
+  .menu-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="plant-side left">
+<svg width="80" height="500" viewBox="0 0 80 500" fill="none">
+  <rect x="34" y="180" width="12" height="290" rx="6" fill="#FAF3E8"/>
+  <rect x="8" y="250" width="10" height="75" rx="5" fill="#FAF3E8"/>
+  <path d="M18 255 Q34 248 34 268" stroke="#FAF3E8" stroke-width="2.5" fill="none"/>
+  <rect x="48" y="280" width="10" height="65" rx="5" fill="#FAF3E8"/>
+  <path d="M48 295 Q46 280 46 275" stroke="#FAF3E8" stroke-width="2.5" fill="none"/>
+  <circle cx="40" cy="176" r="9" fill="#FAF3E8" opacity="0.65"/>
+  <circle cx="40" cy="165" r="5" fill="#FAF3E8" opacity="0.5"/>
+  <ellipse cx="22" cy="215" rx="15" ry="7" transform="rotate(-40 22 215)" fill="#FAF3E8" opacity="0.55"/>
+  <ellipse cx="58" cy="230" rx="15" ry="7" transform="rotate(38 58 230)" fill="#FAF3E8" opacity="0.55"/>
+  <ellipse cx="28" cy="70" rx="20" ry="8" transform="rotate(-55 28 70)" fill="#FAF3E8" opacity="0.45"/>
+  <line x1="28" y1="70" x2="8" y2="32" stroke="#FAF3E8" stroke-width="1.5" opacity="0.45"/>
+  <ellipse cx="52" cy="100" rx="18" ry="7" transform="rotate(-20 52 100)" fill="#FAF3E8" opacity="0.38"/>
+  <ellipse cx="18" cy="130" rx="16" ry="6" transform="rotate(-68 18 130)" fill="#FAF3E8" opacity="0.4"/>
+  <circle cx="14" cy="380" r="5" fill="#FAF3E8" opacity="0.4"/>
+</svg>
+</div>
+<div class="plant-side right">
+<svg width="80" height="500" viewBox="0 0 80 500" fill="none">
+  <rect x="34" y="180" width="12" height="290" rx="6" fill="#FAF3E8"/>
+  <rect x="8" y="250" width="10" height="75" rx="5" fill="#FAF3E8"/>
+  <path d="M18 255 Q34 248 34 268" stroke="#FAF3E8" stroke-width="2.5" fill="none"/>
+  <rect x="48" y="280" width="10" height="65" rx="5" fill="#FAF3E8"/>
+  <path d="M48 295 Q46 280 46 275" stroke="#FAF3E8" stroke-width="2.5" fill="none"/>
+  <circle cx="40" cy="176" r="9" fill="#FAF3E8" opacity="0.65"/>
+  <circle cx="40" cy="165" r="5" fill="#FAF3E8" opacity="0.5"/>
+  <ellipse cx="22" cy="215" rx="15" ry="7" transform="rotate(-40 22 215)" fill="#FAF3E8" opacity="0.55"/>
+  <ellipse cx="58" cy="230" rx="15" ry="7" transform="rotate(38 58 230)" fill="#FAF3E8" opacity="0.55"/>
+  <ellipse cx="28" cy="70" rx="20" ry="8" transform="rotate(-55 28 70)" fill="#FAF3E8" opacity="0.45"/>
+  <line x1="28" y1="70" x2="8" y2="32" stroke="#FAF3E8" stroke-width="1.5" opacity="0.45"/>
+  <ellipse cx="52" cy="100" rx="18" ry="7" transform="rotate(-20 52 100)" fill="#FAF3E8" opacity="0.38"/>
+  <ellipse cx="18" cy="130" rx="16" ry="6" transform="rotate(-68 18 130)" fill="#FAF3E8" opacity="0.4"/>
+  <circle cx="14" cy="380" r="5" fill="#FAF3E8" opacity="0.4"/>
+</svg>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMenu()">✕</button>
+  <a href="#" onclick="toggleMenu()">Home</a>
+  <a href="#menu" onclick="toggleMenu()">Menu</a>
+  <a href="#community" onclick="toggleMenu()">Community</a>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#find-us" onclick="toggleMenu()">Find Us</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+<nav>
+  <div class="nav-logo">
+    <!-- REPLACE src below with your logo file name e.g. src="logo.png" -->
+    <img src="desertandtropicshealthbarlogo.jpg" alt="Desert & Tropics logo"/>
+    <span class="nav-brand">Desert & Tropics</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#community">Community</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#find-us">Find Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg">
+    <!-- REPLACE these 3 images with your own hero photos -->
+    <img class="hero-img" src="acai-bowl.jpg" alt="Acai bowl"/>
+    <img class="hero-img" src="pink-smoothie.jpg" alt="Smoothie"/>
+    <img class="hero-img" src="bowls-juices.jpg" alt="Health bowl"/>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-box">
+    <p class="hero-eyebrow">Nourish your body & soul</p>
+    <h1 class="hero-title">Desert & Tropics<br>Health Bar</h1>
+    <p class="hero-sub">A vibrant tropical oasis to nuture your body, soul, and mind</p>
+  </div>
+</div>
+
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span class="marquee-item">Açaí Bowls <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Cold-Pressed Juices <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Tropical Smoothies <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Sourdough Toasts <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Desserts <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Moab, Utah <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Açaí Bowls <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Cold-Pressed Juices <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Tropical Smoothies <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Sourdough Toasts <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Desserts <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Moab, Utah <span class="marquee-dot">✦</span></span>
+  </div>
+</div>
+
+<!-- ==================== MENU ==================== -->
+<section class="menu-section" id="menu">
+  <p class="section-eyebrow">What we serve</p>
+  <h2 class="section-title">Our menu</h2>
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('smoothies',this)">Smoothies</div>
+    <div class="tab" onclick="switchTab('juices',this)">Juices</div>
+    <div class="tab" onclick="switchTab('bowls',this)">Bowls</div>
+    <div class="tab" onclick="switchTab('toasts',this)">Toasts</div>
+    <div class="tab" onclick="switchTab('desserts',this)">Desserts</div>
+  </div>
+
+  <!-- SMOOTHIES -->
+  <div class="tab-content active" id="tab-smoothies">
+    <div class="menu-grid">
+      <div class="menu-card">
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="true-blue.jpg" alt="True Blue"/> -->
+        <div class="menu-card-img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><path d="M8 2h8l1 7H7L8 2z"/><path d="M7 9c0 7 2 11 5 11s5-4 5-11"/></svg><span>Add photo</span></div>
+        <div class="menu-card-body"><p class="menu-card-tag">Smoothie</p><p class="menu-card-name">True Blue</p><p class="menu-card-desc">Banana, pineapple, blue spirulina, Greek yogurt, fresh orange juice, milk</p></div>
+      </div>
+      <div class="menu-card">
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="peachy-keen.jpg" alt="Peachy Keen"/> -->
+        <div class="menu-card-img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><path d="M8 2h8l1 7H7L8 2z"/><path d="M7 9c0 7 2 11 5 11s5-4 5-11"/></svg><span>Add photo</span></div>
+        <div class="menu-card-body"><p class="menu-card-tag">Smoothie</p><p class="menu-card-name">Peachy Keen</p><p class="menu-card-desc">Banana, peach, cinnamon, pure maple, Greek yogurt, oat milk</p></div>
+      </div>
+      <div class="menu-card">
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="nutty-nana.jpg" alt="Nutty Nana"/> -->
+        <div class="menu-card-img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><path d="M8 2h8l1 7H7L8 2z"/><path d="M7 9c0 7 2 11 5 11s5-4 5-11"/></svg><span>Add photo</span></div>
+        <div class="menu-card-body"><p class="menu-card-tag">Smoothie</p><p class="menu-card-name">Nutty Nana</p><p class="menu-card-desc">Banana, peanut butter, cinnamon, Greek yogurt, almond milk</p></div>
+      </div>
+      <div class="menu-card">
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="purple-haze.jpg" alt="Purple Haze"/> -->
+        <div class="menu-card-img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><path d="M8 2h8l1 7H7L8 2z"/><path d="M7 9c0 7 2 11 5 11s5-4 5-11"/></svg><span>Add photo</span></div>
+        <div class="menu-card-body"><p class="menu-card-tag">Smoothie</p><p class="menu-card-name">Purple Haze</p><p class="menu-card-desc">Acai, mango, pineapple, strawberry, Greek yogurt, fresh orange juice, milk</p></div>
+      </div>
+      <div class="menu-card">
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="dragon-dream.jpg" alt="Dragon Dream"/> -->
+        <div class="menu-card-img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><path d="M8 2h8l1 7H7L8 2z"/><path d="M7 9c0 7 2 11 5 11s5-4 5-11"/></svg><span>Add photo</span></div>
+        <div class="menu-card-body"><p class="menu-card-tag">Smoothie</p><p class="menu-card-name">Dragon Dream</p><p class="menu-card-desc">Dragon fruit, mango, pineapple, Greek yogurt, fresh orange juice, coconut milk</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JUICES -->
+  <div class="tab-content" id="tab-juices">
+    <div class="menu-grid">
+      <div class="menu-card">
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="beet-the-heat.jpg" alt="Beet the Heat"/> -->
+        <div class="menu-card-img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Add photo</span></div>
+        <div class="menu-card-body"><p class="menu-card-tag">Cold-Pressed Juice</p><p class="menu-card-name">Beet the Heat</p><p class="menu-card-desc">Beets, carrots, apple, lemon, ginger, pineapple</p></div>
+      </div>
+      <div class="menu-card">
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="rise-and-root.jpg" alt="Rise and Root"/> -->
+        <div class="menu-card-img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Add photo</span></div>
+        <div class="menu-card-body"><p class="menu-card-tag">Cold-Pressed Juice</p><p class="menu-card-name">Rise and Root</p><p class="menu-card-desc">Carrots, orange, lemon, turmeric, pineapple</p></div>
+      </div>
+      <div class="menu-card">
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="uplift-and-shift.jpg" alt="Uplift and Shift"/> -->
+        <div class="menu-card-img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Add photo</span></div>
+        <div class="menu-card-body"><p class="menu-card-tag">Cold-Pressed Juice</p><p class="menu-card-name">Uplift & Shift</p><p class="menu-card-desc">Grapefruit, orange, apples, lemon, ginger</p></div>
+      </div>
+      <div class="menu-card">
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="go-to-green.jpg" alt="Go to Green"/> -->
+        <div class="menu-card-img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Add photo</span></div>
+        <div class="menu-card-body"><p class="menu-card-tag">Cold-Pressed Juice</p><p class="menu-card-name">Go to Green</p><p class="menu-card-desc">Cucumber, spinach, lime, apple, pineapple</p></div>
+      </div>
+      <div class="menu-card">
+        <span class="badge">Fan Fave</span>
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="sunkissed.jpg" alt="Sunkissed"/> -->
+        <div class="menu-card-img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Add photo</span></div>
+        <div class="menu-card-body"><p class="menu-card-tag">Cold-Pressed Juice</p><p class="menu-card-name">Sunkissed</p><p class="menu-card-desc">Orange, pineapple, lemon, ginger</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOWLS -->
+  <div class="tab-content" id="tab-bowls">
+    <div class="menu-grid">
+      <div class="menu-card">
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="sweet-nectar.jpg" alt="Sweet Nectar"/> -->
+        <div class="menu-card-img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><path d="M4 11h16v2a8 8 0 0 1-16 0v-2z"/><path d="M12 2v4"/></svg><span>Add photo</span></div>
+        <div class="menu-card-body"><p class="menu-card-tag">Bowl</p><p class="menu-card-name">Sweet Nectar</p><p class="menu-card-desc">Acai base, peanut butter, banana, raspberry, house-made granola, honey drizzle, raw cacao, bee pollen</p></div>
+      </div>
+      <div class="menu-card">
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="berries-and-cream.jpg" alt="Berries and Cream"/> -->
+        <div class="menu-card-img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><path d="M4 11h16v2a8 8 0 0 1-16 0v-2z"/><path d="M12 2v4"/></svg><span>Add photo</span></div>
+        <div class="menu-card-body"><p class="menu-card-tag">Bowl</p><p class="menu-card-name">Berries and Cream</p><p class="menu-card-desc">Acai base, banana, blueberry, strawberry, Greek yogurt, granola, honey drizzle, chia seeds</p></div>
+      </div>
+      <div class="menu-card">
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="bliss-bowl.jpg" alt="Bliss Bowl"/> -->
+        <div class="menu-card-img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><path d="M4 11h16v2a8 8 0 0 1-16 0v-2z"/><path d="M12 2v4"/></svg><span>Add photo</span></div>
+        <div class="menu-card-body"><p class="menu-card-tag">Bowl</p><p class="menu-card-name">Bliss Bowl</p><p class="menu-card-desc">Acai base, banana, blueberry, shaved almond, granola, coconut shreds, bee pollen, raw honey</p></div>
+      </div>
+      <div class="menu-card">
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="yogurt-bowl.jpg" alt="Yogurt Bowl"/> -->
+        <div class="menu-card-img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><path d="M4 11h16v2a8 8 0 0 1-16 0v-2z"/><path d="M12 2v4"/></svg><span>Add photo</span></div>
+        <div class="menu-card-body"><p class="menu-card-tag">Bowl</p><p class="menu-card-name">Yogurt Bowl</p><p class="menu-card-desc">Greek yogurt base, house-made granola, banana, strawberry, blueberry, raw honey, chia seeds</p></div>
+      </div>
+      <div class="menu-card">
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="fruit-bowl.jpg" alt="Fruit Bowl"/> -->
+        <div class="menu-card-img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><path d="M4 11h16v2a8 8 0 0 1-16 0v-2z"/><path d="M12 2v4"/></svg><span>Add photo</span></div>
+        <div class="menu-card-body"><p class="menu-card-tag">Bowl</p><p class="menu-card-name">Fruit Bowl</p><p class="menu-card-desc">Your choice of four fruits, cut fresh and mixed</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOASTS -->
+  <div class="tab-content" id="tab-toasts">
+    <div class="menu-grid">
+      <div class="menu-card">
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="simply-avo.jpg" alt="Simply Avo"/> -->
+        <div class="menu-card-img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span>Add photo</span></div>
+        <div class="menu-card-body"><p class="menu-card-tag">Toast</p><p class="menu-card-name">Simply Avo</p><p class="menu-card-desc">Sourdough, avocado, cream cheese, everything seasoning, lemon zest</p></div>
+      </div>
+      <div class="menu-card">
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="pesto-caprese.jpg" alt="Pesto Caprese"/> -->
+        <img class="menu-card-img" src="pestotoast.png" alt="Pesto Caprese"/>
+        <div class="menu-card-body"><p class="menu-card-tag">Toast</p><p class="menu-card-name">Pesto Caprese</p><p class="menu-card-desc">Sourdough, house-made basil pesto, fresh mozzarella, cherry tomato, balsamic glaze, lemon zest</p></div>
+      </div>
+      <div class="menu-card">
+        <span class="badge">Fan Fave</span>
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="the-loaded.jpg" alt="The Loaded"/> -->
+        <img class="menu-card-img" src="the-loaded.jpg" alt="The Loaded"/>
+        <div class="menu-card-body"><p class="menu-card-tag">Toast</p><p class="menu-card-name">The Loaded</p><p class="menu-card-desc">Sourdough, avocado, arugula, red onion, tomato, fetta, olive oil, balsamic reduction, sea salt, lemon zest</p></div>
+      </div>
+      <div class="menu-card">
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="the-hive.jpg" alt="The Hive"/> -->
+        <div class="menu-card-img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span>Add photo</span></div>
+        <div class="menu-card-body"><p class="menu-card-tag">Toast</p><p class="menu-card-name">The Hive</p><p class="menu-card-desc">Sourdough, peanut butter, banana, raspberry, blueberry, honey drizzle, cacao nibs, bee pollen, shaved almond</p></div>
+      </div>
+      <div class="menu-card">
+        <span class="badge">Fan Fave</span>
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="the-luxe.jpg" alt="The Luxe"/> -->
+       <img class="menu-card-img" src="theluxetoast.png" alt="The Luxe Toast"/>
+        <div class="menu-card-body"><p class="menu-card-tag">Toast</p><p class="menu-card-name">The Luxe</p><p class="menu-card-desc">Sourdough, goat cheese, arugula, prosciutto, pear, balsamic glaze, olive oil, sea salt, pistachio, lemon zest</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESSERTS -->
+  <div class="tab-content" id="tab-desserts">
+    <div class="dessert-grid">
+      <div class="menu-card">
+        <span class="badge">Fan Fave</span>
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="date-bar.jpg" alt="Date Bar"/> -->
+        <div class="menu-card-img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Add photo</span></div>
+        <div class="menu-card-body"><p class="menu-card-tag">Dessert</p><p class="menu-card-name">Raspberry Pistachio Date Bar</p><p class="menu-card-desc">A house-made treat — naturally sweet, nutty, and full of good things</p></div>
+      </div>
+      <div class="menu-card">
+        <!-- REPLACE placeholder with: <img class="menu-card-img" src="chia-pudding.jpg" alt="Chia Pudding"/> -->
+        <div class="menu-card-img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Add photo</span></div>
+        <div class="menu-card-body"><p class="menu-card-tag">Dessert</p><p class="menu-card-name">Coconut Chia Seed Pudding</p><p class="menu-card-desc">Creamy, chilled, and topped with seasonal fruit</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="plant-divider">
+  <div class="divider-line"></div>
+  <svg width="110" height="46" viewBox="0 0 110 46" fill="none" opacity="0.45">
+    <rect x="50" y="8" width="9" height="34" rx="4.5" fill="#FAF3E8"/>
+    <rect x="34" y="20" width="7" height="18" rx="3.5" fill="#FAF3E8"/>
+    <path d="M41 25 Q50 21 50 29" stroke="#FAF3E8" stroke-width="1.8" fill="none"/>
+    <rect x="61" y="23" width="7" height="15" rx="3.5" fill="#FAF3E8"/>
+    <path d="M61 31 Q57 27 55 25" stroke="#FAF3E8" stroke-width="1.8" fill="none"/>
+    <circle cx="54.5" cy="6" r="5.5" fill="#FAF3E8" opacity="0.6"/>
+    <ellipse cx="20" cy="26" rx="14" ry="5.5" transform="rotate(-34 20 26)" fill="#FAF3E8" opacity="0.5"/>
+    <ellipse cx="90" cy="26" rx="14" ry="5.5" transform="rotate(34 90 26)" fill="#FAF3E8" opacity="0.5"/>
+  </svg>
+  <div class="divider-line"></div>
+</div>
+
+<!-- COMMUNITY -->
+<section class="community-section" id="community">
+  <p class="section-eyebrow" style="color:var(--brown-light);">Our community</p>
+  <h2 class="section-title" style="color:var(--brown);">Desert & Tropics Philosophy</h2>
+  <div class="philosophy-wrap">
+    <div>
+      <p class="philosophy-quote">"Crafted with intention, served with care."</p>
+      <div class="philosophy-body">
+        <p>Every toast is hand-crafted and assembled with care — because we believe the food you eat should feel like it was made just for you. We source our greens locally, keeping nutrients at their peak from farm to bowl.</p>
+        <p>Desert & Tropics is a staple in the desert for a reason. Before you hit the red rock trails of Canyonlands, we're here to quench your thirst, fuel your body, and prepare you for an incredible adventure ahead. We're not just a health bar — we're part of your Moab experience.</p>
+      </div>
+    </div>
+    <div class="philosophy-img-wrap">
+      <!-- REPLACE with your own community/lifestyle photo -->
+      <img src="drinkswithcanyoninbackground.jpg" alt="Canyonlands hiking"/>
+    </div>
+  </div>
+
+    </div><!-- end of philosophy-wrap -->
+
+<!-- YOGA & JUICE SESSIONS -->
+  <div style="margin-top:40px;background:rgba(58,32,16,0.15);border:1px solid rgba(58,32,16,0.2);padding:48px 40px;">
+    <p style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--brown-light);margin-bottom:10px;">Community Events</p>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:34px;font-style:italic;color:var(--brown);margin-bottom:20px;">Yoga & Juice Sessions</h3>
+    <p style="font-size:14px;line-height:1.95;color:var(--brown-light);font-weight:300;max-width:600px;margin-bottom:24px;">A curated blend of mindful movement and fresh-crafted nourishment. Each class pairs grounding yoga with a signature cold-pressed juice designed to energize, restore, and elevate your day. It's a simple ritual that leaves you centered, refreshed, and glowing.</p>
+    <p style="font-size:13px;color:var(--brown-light);font-weight:300;">For class times and schedule follow us on Instagram — <a href="https://www.instagram.com/desertandtropicshealthbar" target="_blank" style="color:var(--brown);font-weight:400;text-decoration:underline;">@desertandtropicshealthbar</a></p>
+  </div>
+
+  <div class="philosophy-pillars">
+    <div class="pillar">
+      <div class="pillar-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+      <p class="pillar-title">Locally sourced</p>
+      <p class="pillar-text">Nutrient-rich greens and superfoods sourced from local, regional trusted farms and sources.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+      <p class="pillar-title">Handcrafted</p>
+      <p class="pillar-text">Every item made by hand, with intention — never rushed, always made fresh to order</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+      <p class="pillar-title">Trail-ready fuel</p>
+      <p class="pillar-text">Built for adventurers — nourishing you before and after Canyonlands, Arches, and beyond</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section" id="Reviews">
+  <p class="section-eyebrow">What people are saying</p>
+  <h2 class="section-title">Reviews</h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars"><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span></div>
+      <!-- EDIT: Replace review text and customer name -->
+      <p class="review-text">"I love the rapsberry pistachio date bar, my favorite desert, the pistachio butter just adds such a unique touch! — I dream about it between visits."</p>
+      <p class="review-author">—Ashley P.</p>
+      <p class="review-item">Raspberry Pistachio Date Bar</p>
+    </div>
+    <div class="review-card">
+      <div class="review-stars"><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span></div>
+      <p class="review-text">"The atmosphere is so cozy and the food is genuinely nourishing, reminds me of Hawaii."</p>
+      <p class="review-author">—Kyla</p>
+      <p class="review-item">The Luxe</p>
+    </div>
+    <div class="review-card">
+      <div class="review-stars"><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span></div>
+      <p class="review-text">"This is what Moab needs. Filling a missing gap. Place is super cute! Menu is very nice and you get a lot for your $! So happy to have this place in Moab."</p>
+      <p class="review-author">-Teresa Herd, local guest</p>
+      <p class="review-item">Beet The Heat</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="about-strip" id="about">
+  <div class="about-text">
+    <p class="about-label">Our story</p>
+    <h2 class="about-title">Where the desert meets the tropics</h2>
+    <p>Born from a love of wild ingredients, inspired by the tropical hawaiian culture and made for all travelers and locals visiting Canyonlands, Desert & Tropics brings together the healing power of vibrant tropical superfoods to energize and rejuvinate you everyday. Every bowl, juice, and artisan toast is crafted with intention, love and pride. Insert part about Cassandra here?</p>
+  </div>
+  <div class="about-img-wrap">
+    <!-- REPLACE with your own about/cafe photo -->
+    <img src="circletoastspic.jpg" alt="Healthy food spread"/>
+  </div>
+</div>
+
+<!-- VALUES -->
+<div class="values-section">
+  <div class="value-card">
+    <div class="value-num">01</div>
+    <h3 class="value-title">Whole ingredients</h3>
+    <p class="value-text">Real, seasonal, and sourced from local desert farms and trusted tropical growers.</p>
+  </div>
+  <div class="value-card">
+    <div class="value-num">02</div>
+    <h3 class="value-title">Made with intention and integrity</h3>
+    <p class="value-text">Every bowl assembled by hand, every juice pressed fresh, every smoothie blended to perfection.</p>
+  </div>
+  <div class="value-card">
+    <div class="value-num">03</div>
+    <h3 class="value-title">Deeply rooted</h3>
+    <p class="value-text">Handcrafted artisian toasts, freshly squeezed juices sourced from local and regional areas for your refreshment after a long hike at Arches.</p>
+  </div>
+</div>
+
+<!-- MAP -->
+<section class="map-section" id="find-us"> 
+  <p class="section-eyebrow">Find us</p>
+  <h2 class="section-title">Come visit in Moab</h2>
+  <div class="map-wrap">
+    <div class="map-info">
+      <div>
+        <p class="map-info-label">Address</p>
+        <!-- EDIT: Update address if needed -->
+        <p class="map-info-value">37 E Center St<br>Moab, UT 84532</p>
+      </div>
+      <div style="height:1px;background:rgba(250,243,232,0.1);"></div>
+      <div>
+        <p class="map-info-label">Hours</p>
+        <!-- EDIT: Update your real hours here -->
+        <p class="map-info-value">Mon – Sun</p>
+        <p class="map-info-sub">10:00 am – 4:00 pm</p>
+      </div>
+      <div style="height:1px;background:rgba(250,243,232,0.1);"></div>
+      <div>
+        <p class="map-info-label">Near</p>
+        <p class="map-info-value" style="font-size:16px;">Canyonlands & Arches<br>National Parks</p>
+        <p class="map-info-sub">Fuel up before your hike</p>
+      </div>
+      <div style="height:1px;background:rgba(250,243,232,0.1);"></div>
+      <div>
+        <p class="map-info-label">Contact</p>
+        <!-- EDIT: Add your real phone and email -->
+        <p class="map-info-value" style="font-size:16px;">(801) 649-9591</p>
+        <p class="map-info-sub">desertandtropics28@gmail.com</p>
+      </div>
+    </div>
+    <div class="map-embed">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3097.123456789!2d-109.5503!3d38.5733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8748190aefce0c35%3A0x73e3a5fd8e9edec4!2s37%20E%20Center%20St%2C%20Moab%2C%20UT%2084532!5e0!3m2!1sen!2sus!4v1680000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <p class="cta-label">Come find us</p>
+  <h2 class="cta-title">Visit the tropics!</h2>
+  <p class="cta-sub">Open daily · 37 E Center St, Moab, UT</p>
+<a href="#menu" class="cta-btn">View full menu</a>
+</div>
+
+<!-- INSTAGRAM -->
+<div class="ig-section">
+  <p style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(250,243,232,0.5);margin-bottom:8px;">Follow along</p>
+  <h3 style="font-family:'Cormorant Garamond',serif;font-size:36px;font-style:italic;color:var(--cream);margin-bottom:6px;">Find us on Instagram</h3>
+  <!-- EDIT: Replace with your real Instagram handle and link -->
+  <a class="ig-handle" href="https://www.instagram.com/desertandtropicshealthbar" target="_blank">@deserttropicsbar</a>
+  <div class="ig-grid">
+    <!-- REPLACE these with your real Instagram photos -->
+    <div class="ig-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#FAF3E8"/></svg></div>
+    <div class="ig-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#FAF3E8"/></svg></div>
+    <div class="ig-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#FAF3E8"/></svg></div>
+    <div class="ig-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FAF3E8" stroke-width="1.2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#FAF3E8"/></svg></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-brand">
+    <!-- REPLACE src with your logo file name -->
+    <img src="desertandtropicshealthbarlogo.jpg" alt="Desert & Tropics logo"/>
+    <p>A community health bar, refresh, recharge and quench your thrist in the desert.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Menu</h4>
+    <ul><li>Smoothies</li><li>Cold-Pressed Juices</li><li>Bowls</li><li>Toasts</li><li>Desserts</li></ul>
+  </div>
+  <div class="footer-col">
+    <h4>Visit</h4>
+    <ul>
+      <li>37 E Center St</li>
+      <li>Moab, UT 84532</li>
+      <!-- EDIT: Update your real hours -->
+      <li>Mon - Sun</li> 
+      <li>10am - 4pm</li>
+
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Connect</h4>
+    <ul>
+      <!-- EDIT: Add your real Instagram, email and phone -->
+      <li><a href="https://instagram.com/deserttropicsbar" target="_blank">@desertandtropicshealthbar</a></li>
+      <li>desertandtropics28@gmail.com</li>
+      <li>(801)-649-9591</li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 Desert & Tropics Health Bar</p>
+  <p>Crafted with love & superfoods</p>
+</div>
+
+<script>
+function switchTab(name, el) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  el.classList.add('active');
+}
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+</script>
+</body>
+</html>
